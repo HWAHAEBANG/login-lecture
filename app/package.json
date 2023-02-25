@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2"
   },
   "name": "app",
@@ -8,7 +9,6 @@
   "bin": {
     "app": "bin/WWW.js"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node ./bin/WWW.js",
     "test": "echo \"Error: no test specified\" && exit 1"
