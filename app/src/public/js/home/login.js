@@ -19,6 +19,15 @@ function login() {
     },
     body: JSON.stringify(req),
   })
-    .then((res) => res.json()) // fectch끝에 then이라는 메서드를 사용해서 데이터를 가져올 수 있음
-    .then(console.log);
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.success) {
+        location.href = "/";
+      } else {
+        alert(res.msg);
+      }
+    })
+    .catch((err) => {
+      console.error(new Error("로그인 중 에러 발생"));
+    });
 }

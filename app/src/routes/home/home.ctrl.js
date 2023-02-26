@@ -25,13 +25,13 @@ const process = {
       const idx = users.id.indexOf(id);
       if (users.psword[idx] === psword) {
         return res.json({
-          succees: true,
+          success: true,
         });
       }
     }
 
     return res.json({
-      succees: false,
+      success: false,
       msg: "로그인에 실패하셨습니다.",
     });
   },
