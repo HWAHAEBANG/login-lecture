@@ -10,7 +10,7 @@
     "app": "bin/WWW.js"
   },
   "scripts": {
-    "start": "node ./bin/WWW.js",
+    "start": "nodemon ./bin/WWW.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
