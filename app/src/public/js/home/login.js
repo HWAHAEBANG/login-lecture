@@ -18,5 +18,7 @@ function login() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(req),
-  });
+  })
+    .then((res) => res.json()) // fectch끝에 then이라는 메서드를 사용해서 데이터를 가져올 수 있음
+    .then(console.log);
 }

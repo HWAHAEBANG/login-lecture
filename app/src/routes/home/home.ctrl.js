@@ -1,13 +1,5 @@
 "use strict";
 
-// const hello = (req, res) => {
-//   res.render("home/index");
-// };
-
-// const login = (req, res) => {
-//   res.render("home/login");
-// };
-
 const output = {
   hello: (req, res) => {
     res.render("home/index");
@@ -18,21 +10,34 @@ const output = {
   },
 };
 
+// 임시
+const users = {
+  id: ["나개발", "김팀장", "박인턴"],
+  psword: ["1234", "1234", "123456"],
+};
+
 const process = {
   login: (req, res) => {
-    // 일단 잘 받아 올 수 있는지부터 체크
-    // 데이터가 body에 들어있기 때문에 .body 추가해주고, 실행하면 undefined.
-    // body-parser라는 모듈이 필요하다.
-    // app.js에 "const bodyParser = require("body-parser")"추가하고
+    const id = req.body.id,
+      psword = req.body.psword;
 
-    console.log(req.body);
+    if (users.id.includes(id)) {
+      const idx = users.id.indexOf(id);
+      if (users.psword[idx] === psword) {
+        return res.json({
+          succees: true,
+        });
+      }
+    }
+
+    return res.json({
+      succees: false,
+      msg: "로그인에 실패하셨습니다.",
+    });
   },
 };
 
 module.exports = {
-  // hello,
-  // login,
-  // 객체들을 export하는 것으로 바꾸기
   output,
   process,
 };
