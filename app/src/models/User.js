@@ -9,9 +9,11 @@ class User {
     this.body = body;
   }
 
-  login() {
+  async login() {
+    // + 이 로그인 함수가 실행되는 데에도 시간이 오래걸리므로
+    //  이 로그인을 실행하는 애한태도 어싱크를 걸어줘야함  컨트롤러의 process.login
     const client = this.body; // body가 아닌 Client로 이름 바꿔주자.
-    const { id, psword } = UserStorage.getUserInfo(client.id);
+    const { id, psword } = await UserStorage.getUserInfo(client.id);
 
     if (id) {
       if (id === client.id && psword === client.psword) {
